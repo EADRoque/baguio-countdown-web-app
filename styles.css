@@ -1,0 +1,604 @@
+/* ---------------------------------------------------------
+   Life to the Full in Baguio — Singles Retreat 2026
+   Single committed visual world: pine-night + sunset trail.
+   No light/dark toggle — this is a deliberate one-look poster.
+--------------------------------------------------------- */
+
+:root{
+  --ink:        #0c2a1f;   /* deep pine night — page ground */
+  --ink-2:      #123625;   /* raised surface (cards) */
+  --ink-3:      #17422e;   /* raised-more surface (nested cards) */
+  --line:       rgba(245, 239, 224, 0.14);
+  --paper:      #f5efe0;   /* warm cream — primary text on dark */
+  --paper-dim:  rgba(245, 239, 224, 0.74);
+  --sun:        #ff8a3d;   /* sunset orange accent */
+  --sun-soft:   rgba(255, 138, 61, 0.16);
+  --lime:       #b6e84c;   /* lime pop */
+  --violet:     #9b7ee8;   /* baguio-wordmark violet */
+  --sky:        #5fb2e8;   /* sky blue, secondary link/accent */
+  --shadow:     rgba(4, 14, 10, 0.45);
+
+  font-size: 16px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Work Sans", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.55;
+  padding-inline: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width: 100%; }
+[hidden]{ display: none !important; }
+
+h1, h2, h3, h4{
+  font-family: "Baloo 2", "Segoe UI", system-ui, sans-serif;
+  margin: 0;
+  text-wrap: balance;
+  font-weight: 700;
+}
+
+p{ margin: 0; }
+
+a{ color: var(--lime); }
+
+::selection{ background: var(--sun); color: var(--ink); }
+
+.wrap{
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.tabular{ font-variant-numeric: tabular-nums; }
+
+/* ---------------- Hero ---------------- */
+
+.hero{
+  position: relative;
+  padding-block: 56px 48px;
+  margin-inline: -20px;
+  padding-inline: 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 15% -10%, rgba(255,138,61,0.35), transparent 60%),
+    radial-gradient(100% 80% at 100% 0%, rgba(155,126,232,0.30), transparent 55%),
+    linear-gradient(180deg, #0a2a20 0%, #0c2a1f 70%);
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+
+.eyebrow::before{
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--sun);
+  box-shadow: 0 0 0 4px var(--sun-soft);
+}
+
+.hero-title{
+  margin-top: 14px;
+  font-size: clamp(2.6rem, 11vw, 4.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+}
+
+.hero-title .full{
+  display: block;
+  background: linear-gradient(95deg, var(--lime) 0%, #d7f28a 55%, var(--lime) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-title .baguio{
+  display: block;
+  color: var(--violet);
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.35);
+}
+
+.hero-sub{
+  margin-top: 10px;
+  font-family: "Baloo 2", cursive;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--paper-dim);
+}
+
+.hero-dates{
+  margin-top: 4px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.95rem;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+}
+
+/* ---------------- Countdown ---------------- */
+
+.countdown{
+  position: relative;
+  z-index: 1;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.countdown-cell{
+  background: rgba(12, 42, 31, 0.55);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding-block: 14px 10px;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.countdown-num{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 6.5vw, 2.6rem);
+  color: var(--paper);
+}
+
+.countdown-label{
+  margin-top: 2px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.countdown-arrived{
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(95deg, var(--sun), var(--lime));
+  color: var(--ink);
+  font-family: "Baloo 2", cursive;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.meetpoint{
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+.meetpoint strong{ color: var(--paper); }
+
+/* ---------------- Trail / waypoint sections ---------------- */
+
+.trail{
+  padding-block: 8px 40px;
+}
+
+.waypoint{
+  position: relative;
+  padding-block: 40px;
+  padding-left: 26px;
+  border-left: 2px solid var(--line);
+}
+
+.waypoint:last-of-type{ border-left-color: transparent; }
+
+.waypoint::before{
+  content: attr(data-num);
+  position: absolute;
+  left: -19px;
+  top: 44px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--sun);
+  color: var(--sun);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.way-eyebrow{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
+.way-title{
+  margin-top: 6px;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  color: var(--paper);
+}
+
+.way-title .accent{ color: var(--lime); }
+
+.way-body{ margin-top: 18px; }
+
+/* ---------------- Glance grid ---------------- */
+
+.glance{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.glance-item{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.glance-item.wide{ grid-column: 1 / -1; }
+
+.glance-label{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.glance-value{
+  margin-top: 4px;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.glance-value.hot{ color: var(--sun); }
+
+/* ---------------- Program (day accordion) ---------------- */
+
+.day{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.day-toggle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-family: "Baloo 2", cursive;
+  font-size: 1.05rem;
+  padding: 16px 18px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.day-toggle:focus-visible{ outline: 2px solid var(--sun); outline-offset: -2px; }
+
+.day-toggle .tag{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--sky);
+  display: block;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.day-toggle .chev{
+  flex: none;
+  transition: transform 0.2s ease;
+  color: var(--paper-dim);
+}
+
+.day[data-open="true"] .day-toggle .chev{ transform: rotate(180deg); }
+
+.day-panel{
+  padding: 0 18px 18px;
+}
+
+.sched-row{
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 12px;
+  padding-block: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.sched-row:first-child{ border-top: none; }
+
+.sched-time{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--sun);
+}
+
+.sched-event b{ color: var(--paper); font-weight: 600; }
+.sched-event span{ display:block; color: var(--paper-dim); font-size: 0.82rem; margin-top: 2px; }
+
+/* ---------------- Explore grid ---------------- */
+
+.explore-group{ margin-bottom: 22px; }
+
+.explore-group h4{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 10px;
+}
+
+.pill-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.pill{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+
+.pill small{ display:block; color: var(--paper-dim); font-size: 0.72rem; margin-top: 2px; }
+
+/* ---------------- Pack checklist ---------------- */
+
+.wear-day{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.wear-day .tag{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+
+.wear-day ul{ margin: 8px 0 0; padding-left: 18px; font-size: 0.88rem; }
+.wear-day li{ margin-bottom: 3px; }
+
+.theme-badge{
+  display: inline-block;
+  margin-top: 8px;
+  background: var(--sun-soft);
+  color: var(--sun);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.check-grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 14px;
+}
+
+.check-grid label{
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+.check-grid input{ accent-color: var(--lime); margin-top: 2px; }
+
+.check-grid input:checked + span{ color: var(--paper); text-decoration: line-through; text-decoration-color: var(--lime); }
+
+.weather-note{
+  margin-top: 16px;
+  border-left: 3px solid var(--sky);
+  padding-left: 12px;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+/* ---------------- Pocket money ---------------- */
+
+.money-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.money-wrap{ overflow-x: auto; }
+
+.money-table th, .money-table td{
+  text-align: left;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.money-table th{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.money-table td.price{ color: var(--sun); font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+.money-note{
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+/* ---------------- FAQ accordion ---------------- */
+
+.faq{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.faq-q{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.faq-q:focus-visible{ outline: 2px solid var(--sun); outline-offset: -2px; }
+
+.faq-q .chev{ flex: none; color: var(--lime); transition: transform 0.2s ease; }
+.faq[data-open="true"] .faq-q .chev{ transform: rotate(45deg); }
+
+.faq-a{
+  padding: 0 16px 16px;
+  font-size: 0.88rem;
+  color: var(--paper-dim);
+}
+
+/* ---------------- Registration ---------------- */
+
+.steps{ display: grid; gap: 10px; }
+
+.step{
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.step-num{
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  color: var(--sun);
+  font-weight: 700;
+}
+
+.step h4{ font-family: "Baloo 2", cursive; font-size: 1rem; color: var(--paper); }
+.step p{ margin-top: 4px; font-size: 0.85rem; color: var(--paper-dim); }
+
+.reg-cta{
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+
+.btn-primary{
+  background: linear-gradient(95deg, var(--sun), var(--lime));
+  color: var(--ink);
+  border: none;
+}
+
+.btn-ghost{ color: var(--paper); }
+
+.placeholder-note{
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--paper-dim);
+  font-style: italic;
+}
+
+/* ---------------- Footer ---------------- */
+
+.footer{
+  padding-block: 40px 60px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.verse{
+  font-family: "Baloo 2", cursive;
+  font-size: 1.15rem;
+  color: var(--paper);
+  max-width: 460px;
+  margin-inline: auto;
+}
+
+.verse cite{
+  display: block;
+  margin-top: 8px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--lime);
+}
+
+.socials{
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+.socials a{ color: var(--paper-dim); text-decoration: none; }
+.socials a:hover{ color: var(--lime); }
+
+/* ---------------- Responsive ---------------- */
+
+@media (min-width: 640px){
+  .countdown{ gap: 14px; }
+  .pill-grid, .check-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 760px){
+  .glance{ grid-template-columns: repeat(3, 1fr); }
+  .waypoint{ padding-left: 40px; }
+  .waypoint::before{ left: -21px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .day-toggle .chev, .faq-q .chev{ transition: none; }
+}
